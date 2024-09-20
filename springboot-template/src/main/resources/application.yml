@@ -7,14 +7,19 @@ spring:
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/fault_diagnosis?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
-
+  # redis配置
   data:
     redis:
       host: localhost
       port: 6379
       password: 123321
-
-# mybatic-plus??
+  # rabbitmq配置
+  rabbitmq:
+    host: localhost
+    username: xuzili
+    password: 123321
+    port: 5672
+# mybatis-plus配置
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #??
