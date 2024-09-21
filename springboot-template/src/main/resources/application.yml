@@ -19,6 +19,9 @@ spring:
     username: xuzili
     password: 123321
     port: 5672
+  # elasticsearch配置
+  elasticsearch:
+    uris: http://localhost:9200
 # mybatis-plus配置
 mybatis-plus:
   configuration:

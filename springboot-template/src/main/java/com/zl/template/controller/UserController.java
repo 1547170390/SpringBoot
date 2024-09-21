@@ -21,5 +21,8 @@ public class UserController {
         List<SystemUser> list = systemUserService.list();
         return list;
     }
+    /**
+     * 创建用户的es索引
+     */
 
 }
