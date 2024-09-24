@@ -28,7 +28,7 @@ public class TestController {
     @GetMapping("/esIndex")
     public String esIndexTest() {
         systemUserService.systemUserToElasticsearch();
-        return "esIndex简历成功";
+        return "esIndex建立成功";
     }
     /**
      * 从es中取出涵哥的数据
