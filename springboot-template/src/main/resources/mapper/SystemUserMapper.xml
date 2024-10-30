@@ -44,11 +44,11 @@
                 left join system_role sr on sur.role_id = sr.role_id
     </sql>
     <select id="selectByUserId" resultMap="BaseResultMap">
-       <include refid="selectUserVo"></include>
+       <include refid="selectUserVo"/>
         WHERE su.user_id = #{userId}
     </select>
     <select id="selectByUsername" resultMap="BaseResultMap">
-        <include refid="selectUserVo"></include>
+        <include refid="selectUserVo"/>
         where su.user_name = #{username}
     </select>
 </mapper>

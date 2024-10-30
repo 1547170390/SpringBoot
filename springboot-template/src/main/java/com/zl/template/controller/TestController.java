@@ -21,7 +21,7 @@ public class TestController {
 
     @GetMapping("/hello")
 //    @PreAuthorize("hasAuthority('test123')")
-//    @PreAuthorize("@zl.hasPermission('test')")
+    @PreAuthorize("@zl.hasPermission('test')")
     public String hello() {
         return "hello";
     }
@@ -49,4 +49,7 @@ public class TestController {
         SystemUser systemUser = systemUserService.getSystemUser(userId);
         return systemUser;
     }
+    /**
+     *
+     */
 }
