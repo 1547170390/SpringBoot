@@ -22,14 +22,33 @@
             <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
             <result property="remark" column="remark" jdbcType="VARCHAR"/>
             <result property="balance" column="balance" jdbcType="INTEGER"/>
-    </resultMap>
+            <collection property="roles" javaType="java.util.List" resultMap="RoleResult">
+            </collection>
 
-    <sql id="Base_Column_List">
-        user_id,user_name,email,
-        phonenumber,sex,avatar,
-        password,status,del_flag,
-        login_ip,login_date,create_by,
-        create_time,update_by,update_time,
-        remark,balance
+    </resultMap>
+    <resultMap id="RoleResult" type="com.zl.template.domain.SystemRole">
+        <id property="roleId" column="role_id" jdbcType="BIGINT"/>
+        <result property="roleName" column="role_name" jdbcType="VARCHAR"/>
+        <result property="roleKey" column="role_key" jdbcType="VARCHAR"/>
+        <result property="roleSort" column="role_sort" jdbcType="INTEGER"/>
+        <result property="dataScope" column="data_scope" jdbcType="CHAR"/>
+        <result property="status" column="role_status" jdbcType="CHAR"/>
+        <result property="delFlag" column="del_flag" jdbcType="CHAR"/>
+    </resultMap>
+    <sql id="selectUserVo">
+        select su.user_id,su.user_name ,su.email ,su.phonenumber ,su.sex ,su.avatar ,su.PASSWORD ,su.STATUS ,su.del_flag ,su.login_ip ,su.login_date ,su.create_by ,su.create_time ,su.update_by ,su.update_time ,su.remark ,su.balance,
+            sr.role_id,sr.role_name ,sr.role_key ,sr.role_sort ,sr.data_scope ,sr.STATUS  as role_status ,sr.del_flag
+        FROM
+            system_user su
+                left JOIN system_user_role sur ON su.user_id = sur.user_id
+                left join system_role sr on sur.role_id = sr.role_id
     </sql>
+    <select id="selectByUserId" resultMap="BaseResultMap">
+       <include refid="selectUserVo"></include>
+        WHERE su.user_id = #{userId}
+    </select>
+    <select id="selectByUsername" resultMap="BaseResultMap">
+        <include refid="selectUserVo"></include>
+        where su.user_name = #{username}
+    </select>
 </mapper>

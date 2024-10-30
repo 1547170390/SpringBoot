@@ -4,6 +4,7 @@ import com.zl.template.domain.SystemUser;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
 * @author xuzili
@@ -17,4 +18,7 @@ public interface SystemUserService extends IService<SystemUser> {
 
     //从es中取出涵哥数据
     String getHanData() throws IOException;
+
+    //查询用户和角色数据
+    SystemUser getSystemUser(Long userid);
 }

@@ -88,6 +88,11 @@ public class SystemUserServiceImpl extends ServiceImpl<SystemUserMapper, SystemU
 
 
     }
+
+    @Override
+    public SystemUser  getSystemUser(Long userid) {
+        return systemUserMapper.selectByUserId(userid);
+    }
 }
 
 

@@ -24,9 +24,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username){
-        LambdaQueryWrapper<SystemUser> wrapper = new LambdaQueryWrapper<>();
-        wrapper.eq(SystemUser::getUserName, username);
-        SystemUser systemUser = systemUserMapper.selectOne(wrapper);
+
+//        LambdaQueryWrapper<SystemUser> wrapper = new LambdaQueryWrapper<>();
+//        wrapper.eq(SystemUser::getUserName, username);
+//        SystemUser systemUser = systemUserMapper.selectOne(wrapper);
+        SystemUser systemUser = systemUserMapper.selectByUsername(username);
+        System.out.println(systemUser);
         if (Objects.isNull(systemUser)){
             throw new RuntimeException("用户名错误");
         }

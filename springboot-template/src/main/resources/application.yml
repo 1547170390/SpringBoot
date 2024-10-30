@@ -21,9 +21,9 @@ spring:
 
   # rabbitmq配置
   rabbitmq:
-    host: localhost
-    username: xuzili
-    password: 123321
+    host: 10.211.55.7
+    username: zl-mq
+    password: xzl.995
     port: 5672
   # elasticsearch配置
   elasticsearch:
