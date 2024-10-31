@@ -1,5 +1,6 @@
 package com.zl.template.controller;
 
+import com.zl.template.annotation.MyAnnotation;
 import com.zl.template.domain.SystemUser;
 import com.zl.template.service.SystemUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,9 @@ public class TestController {
     @GetMapping("/hello")
 //    @PreAuthorize("hasAuthority('test123')")
     @PreAuthorize("@zl.hasPermission('test')")
+    @MyAnnotation //自定义注解
     public String hello() {
+
         return "hello";
     }
     /**
