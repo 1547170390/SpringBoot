@@ -7,13 +7,8 @@ spring:
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/fault_diagnosis?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
-  # redis配置
-  data:
-    redis:
-      host: 10.211.55.8
-      port: 6379
-      password: xzl.995
-  # mongodb配置
+
+    # mongodb配置
     mongodb:
       host: localhost
       database: articledb
@@ -49,6 +44,12 @@ spring:
   # elasticsearch配置
   elasticsearch:
     uris: http://localhost:9200
+  data:
+    redis:
+      sentinel:
+        password: xzl.995
+        master: mymaster
+        nodes: 10.211.55.15:26379,10.211.55.8:26379,10.211.55.14:26379
 # mybatis-plus配置
 mybatis-plus:
   configuration:

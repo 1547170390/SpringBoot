@@ -20,6 +20,7 @@ import org.springframework.amqp.rabbit.connection.CorrelationData;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
 import javax.crypto.SecretKey;
@@ -32,6 +33,9 @@ class SpringbootTemplateApplicationTests {
 
     @Autowired
     private StringRedisTemplate stringRedisTemplate;
+
+    @Autowired
+    private RedisTemplate redisTemplate;
 
     @Autowired
     private RedisCache redisCache;
@@ -62,8 +66,9 @@ class SpringbootTemplateApplicationTests {
         /**
          * sortedset
          */
-        stringRedisTemplate.opsForZSet().add("set","set集合",1);
-        stringRedisTemplate.opsForZSet().add("set","第二个腧",2);
+//        stringRedisTemplate.opsForZSet().add("set","set集合",1);
+//        stringRedisTemplate.opsForZSet().add("set","第二个腧",2);
+        redisTemplate.opsForValue().set("123","shishi");
     }
 
     @Test
